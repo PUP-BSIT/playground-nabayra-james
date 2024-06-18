@@ -1,0 +1,26 @@
+<header>
+    <button (click)="showSidebar = !showSidebar">
+      @if (showSidebar) { <mat-icon>close</mat-icon> }
+      @else { <mat-icon>menu</mat-icon> }
+    </button>
+    @if(isLoading) {
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+</header>
+
+<mat-sidenav-container>
+    <mat-sidenav [(opened)]="showSidebar">
+      Side Navigation
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <form [formGroup]="searchForm">
+        <mat-form-field>
+          <mat-label>Search Country</mat-label>
+          <input matInput id="name_bind" formControlName="keyword" />
+          <mat-icon matPrefix>search</mat-icon>
+        </mat-form-field>
+      </form>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+<footer></footer>
